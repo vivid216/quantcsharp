@@ -1,0 +1,8 @@
+
+docs/~*
+bin
+obj
+.vs
+nupkg/*
+*.nupkg
+!packages/*

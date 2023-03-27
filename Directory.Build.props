@@ -1,0 +1,35 @@
+<Project>
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+	<TargetFrameworks>netcoreapp3.1;net6.0</TargetFrameworks>
+    <Version>1.0.1</Version>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <PackageIconUrl></PackageIconUrl>
+    <PackageProjectUrl></PackageProjectUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <RepositoryType></RepositoryType>
+    <RepositoryUrl></RepositoryUrl>
+	<Company>quantcsharp</Company>
+	<Authors>slm</Authors>
+    <Product>quantcsharp</Product>
+    <Copyright>slm</Copyright>
+	<PackageTags>quantcsharp</PackageTags>
+	<Summary>edt,actor,xtp,ctp,quant</Summary>
+  </PropertyGroup>
+  
+  
+  <PropertyGroup>
+    <DefineConstants>RELEASE;WIN</DefineConstants>
+    <RuntimeIdentifiers>win-x64;linux-x64</RuntimeIdentifiers>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release' ">
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+ 
+
+</Project>
