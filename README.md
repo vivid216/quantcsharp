@@ -53,9 +53,9 @@ class XtpMarketSubs : IWorkHandler<XTPMarketDataStruct>
 ![行情输出](./docs/xtp.png)
 
 __NOTE:__ 
-发布到unix环境上时,注意增加一个软链接到so文件,比如 
-ln -s thosttraderapi thosttraderapi.so   
-ln -s xtpquoteapi  libxtpquoteapi.so
+发布到unix环境上时,注意增加一个软链接到so文件,比如   
+` ln -s thosttraderapi thosttraderapi.so `    
+` ln -s xtpquoteapi  libxtpquoteapi.so`
 
 
 __NOTE:__ 
