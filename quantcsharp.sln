@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31829.152
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "proxyctp", "src\QuantCSharp.ProxyCTP\proxyctp.csproj", "{4737321F-F54D-46E2-A467-B7B9C7BA1DF1}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "utilities", "src\QuantCSharp.Utilities\utilities.csproj", "{ACADEF09-3849-4045-B26B-0575F4AA884F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "examples", "examples\QuantCSharp.Examples\examples.csproj", "{0968E053-0645-4EB0-9CE3-BC7F68450742}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "proxyxtp", "src\QuantCSharp.ProxyXTP\proxyxtp.csproj", "{E01CC018-21D7-47F6-8204-6A6BF2A74E17}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "proxyctp", "src\QuantCSharp.ProxyCTP\proxyctp.csproj", "{2B483173-8D46-4EF0-BB55-E2BFF5BCFAB5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4737321F-F54D-46E2-A467-B7B9C7BA1DF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4737321F-F54D-46E2-A467-B7B9C7BA1DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4737321F-F54D-46E2-A467-B7B9C7BA1DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4737321F-F54D-46E2-A467-B7B9C7BA1DF1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ACADEF09-3849-4045-B26B-0575F4AA884F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ACADEF09-3849-4045-B26B-0575F4AA884F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACADEF09-3849-4045-B26B-0575F4AA884F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +25,14 @@ Global
 		{0968E053-0645-4EB0-9CE3-BC7F68450742}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0968E053-0645-4EB0-9CE3-BC7F68450742}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0968E053-0645-4EB0-9CE3-BC7F68450742}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E01CC018-21D7-47F6-8204-6A6BF2A74E17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E01CC018-21D7-47F6-8204-6A6BF2A74E17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E01CC018-21D7-47F6-8204-6A6BF2A74E17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E01CC018-21D7-47F6-8204-6A6BF2A74E17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B483173-8D46-4EF0-BB55-E2BFF5BCFAB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B483173-8D46-4EF0-BB55-E2BFF5BCFAB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B483173-8D46-4EF0-BB55-E2BFF5BCFAB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B483173-8D46-4EF0-BB55-E2BFF5BCFAB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

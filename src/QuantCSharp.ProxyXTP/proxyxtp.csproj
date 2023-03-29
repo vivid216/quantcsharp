@@ -3,27 +3,28 @@
   <PropertyGroup>   
     <LangVersion>8.0</LangVersion>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <AssemblyName>examples</AssemblyName>
-    <RootNamespace>examples</RootNamespace>
+    <AssemblyName>QuantCSharp.ProxyXTP</AssemblyName>
+    <RootNamespace>QuantCSharp.ProxyXTP</RootNamespace>
     <ApplicationIcon />
   </PropertyGroup>
 
   <PropertyGroup>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <PlatformTarget>x64</PlatformTarget>
-    <OutputType>Exe</OutputType>
-    <StartupObject />
   </PropertyGroup>
 
   <PropertyGroup>
     <DefineConstants>RELEASE;WIN</DefineConstants>
     <RuntimeIdentifiers>win-x64;linux-x64</RuntimeIdentifiers>
   </PropertyGroup>
-
+  
   <ItemGroup>
-    <ProjectReference Include="..\..\src\QuantCSharp.ProxyCTP\proxyctp.csproj" />
-    <ProjectReference Include="..\..\src\QuantCSharp.ProxyXTP\proxyxtp.csproj" />
+    <ProjectReference Include="..\QuantCSharp.Utilities\utilities.csproj" />
   </ItemGroup>
- 
+  
+  <ItemGroup>
+    <Folder Include="NativeLibs\" />
+  </ItemGroup>
+
   
 </Project>
