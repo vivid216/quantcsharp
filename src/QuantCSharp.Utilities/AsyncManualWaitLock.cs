@@ -1,48 +1,65 @@
 ﻿using System;
+using System.Threading;
 
 namespace QuantCSharp.Utilities
 {
     /// <summary>
     /// 自定一个线程同步锁
     /// </summary>
-    public class AsyncManualWaitLock
+    public static class AsyncManualWaitLock
     {
-        static System.Threading.ManualResetEvent resetEvent = new System.Threading.ManualResetEvent(false);
-        private static object p_lock = new object();
-        private static volatile int p_wait_cnt = -1;
+        static System.Threading.CountdownEvent resetEvent = new System.Threading.CountdownEvent(0);
+        static volatile int m_current_status = 0; // 1:running;0:free
+        private static IAsyncLog _logger = LogManager.GetLogger(typeof(AsyncManualWaitLock));
 
         /// <summary>
         /// 处理此逻辑一定在wait前确保release未被执行
         /// </summary>
         public static void Wait()
         {
-            lock (p_lock)
+            bool waitSignal = resetEvent.Wait(Timeout.InfiniteTimeSpan);
+            if (!waitSignal)
             {
-                if (p_wait_cnt == 0)
-                {
-                    return;
-                }
+                _logger.Error($"receive waitSignal timeout!");
             }
-            resetEvent.Reset();
-            resetEvent.WaitOne(TimeSpan.FromMilliseconds(int.MaxValue -1), true);
-            p_wait_cnt = -1;
-
         }
 
         public static void Release()
         {
-            lock (p_lock)
+            if (Interlocked.CompareExchange(ref m_current_status, 0, 1) == 1)
             {
-                resetEvent.Set();
-                p_wait_cnt = 0;
+                if (!resetEvent.IsSet)
+                {
+                    try
+                    {
+                        resetEvent.Signal();
+                    }
+                    catch (InvalidOperationException)
+                    {
+                        _logger.Warn("best check 1v1 signal attempt made to decrement the event's count");
+                    }
+                }
+            }
+            else
+            {
+                _logger.Warn("no reset before release, best check 1v1 signal");
             }
         }
 
         public static void Reset()
         {
-            lock (p_lock)
+            SpinWait spin = new SpinWait();
+            while (true)
             {
-                p_wait_cnt = -1;
+#pragma warning disable 0420
+                if (Interlocked.CompareExchange(ref m_current_status, 1, 0) == 0)
+#pragma warning restore 0420
+                {
+                    resetEvent.Reset(1);
+                    break;
+                }
+                // The CAS failed.  Spin briefly and try again.
+                spin.SpinOnce();
             }
         }
     }
